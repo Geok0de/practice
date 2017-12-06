@@ -47,9 +47,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 	private List<GrantedAuthority> getGrantedAuthorities(UserInfo userInfo) {
 		List<GrantedAuthority> authorities = new ArrayList<>();
 		
+		// authorities에 있는 곳에 ROLE_를 해서 타입은 참고로 손님인지 관리잔인지 판단하는 것.
 		for (UserType item : userInfo.getUserTypes()) {
 			logger.debug("UserType: " + item);
-			authorities.add(new SimpleGrantedAuthority(item.getType()));
+			authorities.add(new SimpleGrantedAuthority("ROLE_" + item.getType()));
 		}
 		
 		logger.debug("authorities: " + authorities);
