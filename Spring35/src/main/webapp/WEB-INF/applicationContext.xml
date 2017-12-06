@@ -18,7 +18,7 @@
 	<http pattern="/rest/**" realm="MY_TEST_REALM"
 	create-session="stateless">
 	   <http-basic entry-point-ref="customBasicAuthenticationEntryPoint"/>
-	  <intercept-url pattern="/rest/**" access="hasRole('ROLE_ADMIN)"/>
+	  <intercept-url pattern="/rest/**" access="hasRole('ROLE_ADMIN')"/>
 	  <intercept-url method="OPTIONS" pattern="/rest/**"
 	  access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 	  <csrf disabled="true"/>
